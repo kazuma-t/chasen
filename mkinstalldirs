@@ -4,7 +4,7 @@
 # Created: 1993-05-16
 # Public domain
 
-# $Id: mkinstalldirs,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+# $Id: mkinstalldirs,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
 
 errstatus=0
 

@@ -2,7 +2,7 @@
  * chadic.h
  *     1990/12/06/Thu  Yutaka MYOKI(Nagao Lab., KUEE)
  *
- * $Id: chadic.h,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: chadic.h,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 #ifndef __CHADIC_H__

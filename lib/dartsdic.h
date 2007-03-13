@@ -1,5 +1,5 @@
 /*
- * $Id: dartsdic.h,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: dartsdic.h,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 #ifndef _DARTSDIC_H_

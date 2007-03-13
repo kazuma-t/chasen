@@ -1,5 +1,5 @@
 /*
- * $Id: literal.h,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: literal.h,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 enum cha_lit_str {

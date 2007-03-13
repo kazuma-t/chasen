@@ -30,7 +30,7 @@
  * NOTE: An idea of these procedures are taken from youhcan's jutils.c
  *       for wais-japanese
  * 
- * $Id: jfgets.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: jfgets.c,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 

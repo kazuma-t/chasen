@@ -1,7 +1,7 @@
 /*
  * makemat.c - make table file and matrix file
  *
- * $Id: makemat.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: makemat.c,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 #include "chadic.h"

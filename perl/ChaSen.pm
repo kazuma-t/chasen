@@ -1,5 +1,5 @@
 #
-# $Id: ChaSen.pm,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+# $Id: ChaSen.pm,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
 
 package Text::ChaSen;
 
