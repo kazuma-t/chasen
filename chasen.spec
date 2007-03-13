@@ -1,6 +1,6 @@
 %define prefix /usr
 %define PACKAGE chasen
-%define VERSION 2.4.0-preview2
+%define VERSION 2.4.0-preview3
 %define RELEASE 1
 
 Summary: Japanese Morphological Analysis System, ChaSen
