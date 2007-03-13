@@ -1,14 +1,14 @@
 /*
  * makemat.c - make table file and matrix file
  *
- * $Id: makemat.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: makemat.c,v 1.2 2007/03/13 07:51:47 masayu-a Exp $
  */
 
 #include "chadic.h"
 #include "literal.h"
 
 #define CTYPE_MAX        500
-#define REN_TBL_MAX      5000
+#define REN_TBL_MAX      10000
 #define RENSETU_CELL_MAX (8192*4)
 
 #define HINSI_ID_MAX USHRT_MAX

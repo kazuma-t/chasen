@@ -38,10 +38,10 @@ pkglibdir = $(libdir)/chasen
 pkgincludedir = $(includedir)/chasen
 top_builddir = ..
 
-ACLOCAL = ${SHELL} /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/missing --run aclocal-1.9
-AUTOCONF = ${SHELL} /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/missing --run autoconf
-AUTOMAKE = ${SHELL} /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/missing --run automake-1.9
-AUTOHEADER = ${SHELL} /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/missing --run autoheader
+ACLOCAL = ${SHELL} /home/masayu-a/chasen/missing --run aclocal-1.9
+AUTOCONF = ${SHELL} /home/masayu-a/chasen/missing --run autoconf
+AUTOMAKE = ${SHELL} /home/masayu-a/chasen/missing --run automake-1.9
+AUTOHEADER = ${SHELL} /home/masayu-a/chasen/missing --run autoheader
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -57,7 +57,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 host_alias = 
 host_triplet = i686-pc-linux-gnu
-AMTAR = ${SHELL} /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/missing --run tar
+AMTAR = ${SHELL} /home/masayu-a/chasen/missing --run tar
 AS = @AS@
 AWK = gawk
 CC = gcc
@@ -79,7 +79,7 @@ RCPATH = ${prefix}/etc/chasenrc
 VERSION = 2.4.0-preview2
 am__include = include
 am__quote = 
-install_sh = /home/masayu-a/ChaSen/chasen-2.4.0-previewtmp/install-sh
+install_sh = /home/masayu-a/chasen/install-sh
 
 include_HEADERS = chasen.h
 lib_LTLIBRARIES = libchasen.la

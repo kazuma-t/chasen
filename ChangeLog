@@ -1,3 +1,11 @@
+2007-03-13  Asahara Masayuki  <masayu-a@is.naist.jp>
+
+	* mkchadic/makemat.c (REN_TBL_MAX): 
+	for unidic RENSETU table
+
+	* lib/dartsdic.cpp (da_open): 
+	for darts-0.3 
+
 2005-12-01  Masayuki Asahara  <masayu-a@is.naist.jp>
 
 	* lib/dartsdic.cpp (da_open): 

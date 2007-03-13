@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: dartsdic.cpp,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: dartsdic.cpp,v 1.2 2007/03/13 07:51:47 masayu-a Exp $
  */
 
 #include <string>
@@ -68,7 +68,7 @@ da_open(char *daname, char *lexname, char *datname)
 
     da = (darts_t*)cha_malloc(sizeof(darts_t));
     da->da_mmap = cha_mmap_file(daname);
-    darts->setArray(cha_mmap_map(da->da_mmap), cha_mmap_size(da->da_mmap)/darts->getUnitSize());
+    darts->set_array(cha_mmap_map(da->da_mmap), cha_mmap_size(da->da_mmap)/darts->getUnitSize());
     da->da = darts;
     da->lex_mmap = cha_mmap_file(lexname);
     da->dat_mmap = cha_mmap_file(datname);
