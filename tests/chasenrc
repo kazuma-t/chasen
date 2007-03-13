@@ -1,0 +1,11 @@
+(GRAMMAR  .)
+(DADIC        chadic)
+(UNKNOWN_POS (¤¦¤Ë¤ã»ì))
+(DEF_CONN_COST 1000)
+(POS_COST
+	((*) 		1)
+	((UNKNOWN)    3000)
+)
+(CONN_WEIGHT 1)
+(MORPH_WEIGHT 1)
+(COST_WIDTH	  0)

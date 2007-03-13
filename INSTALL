@@ -1,0 +1,33 @@
+Installation
+---------------
+
+   0.  Install double array library Darts-0.2 or newer version.
+       http://cl.aist-nara.ac.jp/~taku-ku/software/darts/
+       And Install libiconv if you need.
+
+   1. Type `./configure' to configure the package for your system.
+      % ./configure
+      You can give `configure' initial values for variables by setting
+      them in the environment like this:
+      % env CC=gcc CFLAGS="-O2 -Wall" ./configure
+      See the file `INSTALL' for detail usage of configure.
+
+   2. Type `make'.
+      % make
+      This produces the system. You might have to use GNU make.
+
+   3. Type `make install' to install programs.
+      # make install
+      This will install the following files.
+      /usr/local/bin/chasen            ChaSen command
+      /usr/local/libexec/chasen/       programs for building dictionaries
+      /usr/local/lib/libchasen.*       ChaSen libraries
+      /usr/local/include/chasen.h      header files
+      /usr/local/share/chasen/doc/     manuals
+
+      The following files will not be installed.
+      perl/ChaSen.pm       	       Perl modules to use ChaSen
+
+      To remove old version of ChaSen programs, type the command below.
+      # rm -rf /usr/local/lib/chasen
+

@@ -1,0 +1,124 @@
+AC_INIT(README)
+AC_PREREQ(2.13)
+AM_INIT_AUTOMAKE(chasen, 2.4.0-preview2)
+AM_CONFIG_HEADER(config.h)
+AM_MAINTAINER_MODE
+
+AC_PROG_CC
+AC_PROG_CXX
+AM_PROG_LIBTOOL
+# Before making a release, the LTVERSION string should be modified.
+# The string is of the form C:R:A.
+# - If interfaces have been changed or added, but binary compatibility has
+#   been preserved, change to C+1:0:A+1
+# - If binary compatibility has been broken (eg removed or changed interfaces)
+#   change to C+1:0:0
+# - If the interface is the same as the previous version, change to C:R+1:A
+LTVERSION="0:1:0"
+AC_SUBST(LTVERSION)
+
+dnl Checks for programs.
+AC_ISC_POSIX
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(fcntl.h limits.h sys/file.h sys/stat.h unistd.h)
+AC_CHECK_HEADERS(sys/param.h sys/types.h netinet/in.h)
+AC_CHECK_HEADERS(io.h windows.h)
+
+AC_MSG_CHECKING([for darts.h])
+AC_ARG_WITH(darts,
+    [  --with-darts=[DIR]      specify a path for the header file of Darts],
+    [if test "${with_darts}" = yes; then
+	vi_darts_path="/usr/local/include"
+     else
+        vi_darts_path=${with_darts}
+     fi
+     CXXFLAGS="${CXXFLAGS} -I${vi_darts_path}"
+    ])
+
+AC_LANG_CPLUSPLUS
+
+AC_CACHE_VAL(cl_cv_header_darts, [
+AC_TRY_COMPILE([#include <darts.h>],[;], [cl_cv_header_darts=yes], [
+    AC_MSG_ERROR(no header of Darts. You need to fetch Darts from http://cl.aist-nara.ac.jp/~taku-ku/software/darts/.)])])
+AC_MSG_RESULT($cl_cv_header_darts)
+AC_LANG_C
+
+AC_ARG_WITH(libiconv,
+    [  --with-libiconv=[DIR]   use libiconv [in DIR]],
+    [if test x"${with_libiconv}" != x ; then
+	ICONV_CFLAGS="-I${with_libiconv}/include"
+	LIBS="$LIBS -L${with_libiconv}/lib"
+        AC_SUBST(ICONV_CFLAGS)
+     fi])
+
+AC_CHECK_LIB(iconv, iconv, [], [
+	AC_CHECK_HEADER(iconv.h, [], AC_MSG_ERROR([ChaSen needs iconv]))])
+
+AC_DEFUN(cl_VAR_ICONV_ARG, [
+     for CODE in $2; do
+       if (echo | iconv -f ${CODE} -t 'UTF-8' > iconv_test 2>&1); then
+	 vi_iconv_arg_$1=${CODE}; break
+     fi;
+     done
+     rm -f iconv_test
+     if test x"$vi_iconv_arg_$1" = x; then
+	 AC_MSG_ERROR($3)
+     fi
+     AC_DEFINE_UNQUOTED(ICONV_$1, "$vi_iconv_arg_$1")
+     ])
+
+AC_MSG_CHECKING([iconv args])
+cl_VAR_ICONV_ARG(EUCJP, [EUC-JP EUCJP eucJP], [cannot use EUC-JP with iconv])
+cl_VAR_ICONV_ARG(SJIS, [SHIFT_JIS SHIFT-JIS SJIS],
+    [cannot use Shift_JIS with iconv])
+cl_VAR_ICONV_ARG(88591, [ISO-8859-1 ISO_8859-1 8859-1 ISO8859-1],
+    [cannot use ISO-8859-1 with iconv])
+AC_MSG_RESULT([$vi_iconv_arg_EUCJP $vi_iconv_arg_SJIS $vi_iconv_arg_88591])
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_OFF_T
+AC_TYPE_SIZE_T
+
+dnl Checks for library functions.
+AC_FUNC_MEMCMP
+AC_FUNC_MMAP
+
+case "$host_os" in
+    mingw* | os2*)
+    RCPATH='c:\\\\Program Files\\\\chasen\\\\etc\\\\chasenrc'
+    ;;
+    *)
+    # UNIX like-system
+    RCPATH="$sysconfdir/chasenrc"
+    ;;
+esac
+AC_SUBST(RCPATH)
+
+if test -n "${GCC}"; then
+ 	CFLAGS="${CFLAGS} -Wall"
+fi
+
+AC_OUTPUT([ 
+	    Makefile 
+	    chasen-config
+	    chasen/Makefile
+	    mkchadic/Makefile
+	    doc/Makefile 
+	    lib/Makefile
+	    tests/Makefile
+	    chasen.spec
+	  ],
+	  [chmod +x chasen-config])
+
+
+# removed the following entry from AC_OUTPUT
+#	    lib/Makefile.mingw32
+
+# Local Variables:
+# mode:shell-script
+# sh-indentation:4
+# End:
