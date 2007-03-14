@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: chalib.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: chalib.c,v 1.2 2007/03/14 04:01:23 masayu-a Exp $
  */
 
 #include "chalib.h"
@@ -68,7 +68,7 @@ cha_version(FILE * fp)
 	return;
 
     fprintf(fp,
-	    "%s version %s (c) 1996-2001 Nara Institute of Science and Technology\n",
+	    "%s version %s (c) 1996-2007 Nara Institute of Science and Technology\n",
 	    CHA_NAME, VERSION);
     fprintf(fp, "Grammar files are in ChaSen's new v-gram format.\n");
 }

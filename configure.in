@@ -1,6 +1,6 @@
 AC_INIT(README)
 AC_PREREQ(2.61)
-AM_INIT_AUTOMAKE(chasen, 2.4.0-preview3)
+AM_INIT_AUTOMAKE(chasen, 2.4.0-preview4)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -20,7 +20,7 @@ AC_PROG_MAKE_SET
 # - If binary compatibility has been broken (eg removed or changed interfaces)
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
-LTVERSION="0:1:0"
+LTVERSION="2:4:0"
 AC_SUBST(LTVERSION)
 
 

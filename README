@@ -1,6 +1,6 @@
 ======================================================================
 		     Morphological Analysis System
-			 ChaSen version 2.3.3
+			 ChaSen version 2.4.0
 ======================================================================
 
 0. Files and directories
@@ -47,5 +47,5 @@
 
 ----------------------------------------------------------------------
 See doc/manual-j.pdf for details (in Japanese).
-For further information, send an email to chasen@is.aist-nara.ac.jp.
-ChaSen homepage: http://chasen.aist-nara.ac.jp/
+For further information, send an email to chasen@is.naist.jp
+ChaSen homepage: http://chasen.naist.jp/
