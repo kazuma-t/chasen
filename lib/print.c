@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: print.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: print.c,v 1.2 2007/03/19 08:12:22 masayu-a Exp $
  */
 
 #include <stdarg.h>
@@ -568,9 +568,10 @@ print_anno(cha_lat_t *lat, int path_num, char *format)
 	    path->start = pos_end;
 	    path->end = pos_end + m->headword_len;
 	    get_mrph_data(m, &d);
-	    if (m->is_undef)
-		format_string = Cha_anno_info[anno_no].format;
-	    cha_printf_mrph(lat, path_num, &d, format);
+
+			if (m->is_undef && Cha_anno_info[anno_no].format)
+				format_string = Cha_anno_info[anno_no].format;
+	    cha_printf_mrph(lat, path_num, &d, format_string);
 
 	    lat->anno = m->dat_index; /* XXX */
 	    pos_end += m->headword_len;

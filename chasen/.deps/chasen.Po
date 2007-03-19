@@ -1,4 +1,4 @@
-chasen.o: chasen.c ../config.h /usr/include/stdio.h \
+chasen.o chasen.o: chasen.c ../config.h /usr/include/stdio.h \
   /usr/include/features.h /usr/include/sys/cdefs.h \
   /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
   /usr/include/gnu/stubs-32.h \

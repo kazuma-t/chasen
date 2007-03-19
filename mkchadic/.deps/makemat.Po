@@ -1,5 +1,5 @@
-makemat.o: makemat.c ../lib/chadic.h ../config.h /usr/include/stdio.h \
-  /usr/include/features.h /usr/include/sys/cdefs.h \
+makemat.o makemat.o: makemat.c ../lib/chadic.h ../config.h \
+  /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h \
   /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
   /usr/include/gnu/stubs-32.h \
   /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/stddef.h \

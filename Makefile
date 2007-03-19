@@ -79,14 +79,14 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/masayu-a/chasen/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/masayu-a/chasen/missing --run tar
+AMTAR = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/masayu-a/chasen/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/masayu-a/chasen/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/masayu-a/chasen/missing --run automake-1.9
+AUTOCONF = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run automake-1.9
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -96,7 +96,7 @@ CPPFLAGS =
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXFLAGS = -g -O2 -I/home/masayu-a/ChaSen/darts-0.31
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -123,11 +123,11 @@ LIBS =
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBOBJS = 
-LTVERSION = 0:1:0
+LTVERSION = 2:4:0
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /home/masayu-a/chasen/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run makeinfo
 OBJEXT = o
 PACKAGE = chasen
 PACKAGE_BUGREPORT = 
@@ -141,7 +141,7 @@ RCPATH = ${prefix}/etc/chasenrc
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = strip
-VERSION = 2.4.0-preview3
+VERSION = 2.4.0-preview5
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_F77 = 
@@ -173,7 +173,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = /home/masayu-a/chasen/install-sh
+install_sh = /home/masayu-a/ChaSen/chasen/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -672,7 +672,7 @@ dist-hook:
 	done
 
 rpm: dist	
-	rpm -ta chasen-2.4.0-preview3.tar.gz
+	rpm -ta chasen-2.4.0-preview5.tar.gz
 
 win:
 	$(MAKE) distclean
@@ -690,31 +690,31 @@ win:
 
 win-dic:
 	tar zxfv ipadic-sjis*.tar.gz
-	cd ipadic-sjis* && ./configure --with-mkchadic="wine -- ../mkchadic" --with-chasenrc-path=../chasen-2.4.0-preview3/etc/chasenrc --with-dicdir=../chasen-2.4.0-preview3/share/chasen/dic
+	cd ipadic-sjis* && ./configure --with-mkchadic="wine -- ../mkchadic" --with-chasenrc-path=../chasen-2.4.0-preview5/etc/chasenrc --with-dicdir=../chasen-2.4.0-preview5/share/chasen/dic
 	cd ipadic-sjis* && make
 
 win-dist:
-	rm -f chasen-2.4.0-preview3.zip
-	rm -rf chasen-2.4.0-preview3
-	$(MAKE) prefix=`pwd`/chasen-2.4.0-preview3 install
-	cp COPYING README AUTHORS ./chasen-2.4.0-preview3/
-	rm -fr ./chasen-2.4.0-preview3/lib/libchasen*
-	rm -fr ./chasen-2.4.0-preview3/bin/chasen-config
-	cp -f lib/libchasen.dll ./chasen-2.4.0-preview3/lib
-	cp -f lib/libchasen.def ./chasen-2.4.0-preview3/lib
-	mkdir ./chasen-2.4.0-preview3/etc	
-	cd ipadic-sjis* && make prefix=../chasen-2.4.0-preview3/ install
-	$(KCONV) -s -c ./chasen-2.4.0-preview3/etc/chasenrc | sed -e 's#/#\\\\#g' -e's#\.\.#c:\\\\Program\\ Files\\\\#g' -e 's#-2.4.0-preview3##' >./chasen-2.4.0-preview3/etc/chasenrc.new
-	mv -f ./chasen-2.4.0-preview3/etc/chasenrc.new ./chasen-2.4.0-preview3/etc/chasenrc
-	zip -r chasen-2.4.0-preview3.zip chasen-2.4.0-preview3
-	rm -fr chasen-2.4.0-preview3
+	rm -f chasen-2.4.0-preview5.zip
+	rm -rf chasen-2.4.0-preview5
+	$(MAKE) prefix=`pwd`/chasen-2.4.0-preview5 install
+	cp COPYING README AUTHORS ./chasen-2.4.0-preview5/
+	rm -fr ./chasen-2.4.0-preview5/lib/libchasen*
+	rm -fr ./chasen-2.4.0-preview5/bin/chasen-config
+	cp -f lib/libchasen.dll ./chasen-2.4.0-preview5/lib
+	cp -f lib/libchasen.def ./chasen-2.4.0-preview5/lib
+	mkdir ./chasen-2.4.0-preview5/etc	
+	cd ipadic-sjis* && make prefix=../chasen-2.4.0-preview5/ install
+	$(KCONV) -s -c ./chasen-2.4.0-preview5/etc/chasenrc | sed -e 's#/#\\\\#g' -e's#\.\.#c:\\\\Program\\ Files\\\\#g' -e 's#-2.4.0-preview5##' >./chasen-2.4.0-preview5/etc/chasenrc.new
+	mv -f ./chasen-2.4.0-preview5/etc/chasenrc.new ./chasen-2.4.0-preview5/etc/chasenrc
+	zip -r chasen-2.4.0-preview5.zip chasen-2.4.0-preview5
+	rm -fr chasen-2.4.0-preview5
 
 win-dist2:
-	unzip chasen-2.4.0-preview3.zip
-	(cd chasen-2.4.0-preview3; lha a chasen-2.4.0-preview3.lzh .)
-	mv -f chasen-2.4.0-preview3/chasen-2.4.0-preview3.lzh .
+	unzip chasen-2.4.0-preview5.zip
+	(cd chasen-2.4.0-preview5; lha a chasen-2.4.0-preview5.lzh .)
+	mv -f chasen-2.4.0-preview5/chasen-2.4.0-preview5.lzh .
 	wine ./EXEpress.exe -- chasen.ini
-	rm -fr chasen-2.4.0-preview3 chasen-2.4.0-preview3.lzh
+	rm -fr chasen-2.4.0-preview5 chasen-2.4.0-preview5.lzh
 
 #include $(srcdir)/maintMakefile
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

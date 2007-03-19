@@ -116,7 +116,7 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "2.4.0-preview3"
+#define VERSION "2.4.0-preview5"
 
 /* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
    `char[]'. */

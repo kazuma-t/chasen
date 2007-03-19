@@ -64,7 +64,7 @@ while test $# -gt 0; do
 	;;
 
     --version)
-	echo 2.4.0-preview3
+	echo 2.4.0-preview5
 	exit 0
 	;;
 

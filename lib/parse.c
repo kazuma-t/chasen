@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: parse.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: parse.c,v 1.2 2007/03/19 08:12:22 masayu-a Exp $
  */
 
 #include "chalib.h"
@@ -475,8 +475,11 @@ set_anno(cha_lat_t *lat, cha_seg_t *seg)
 	mrph->is_undef = 0;
 	mrph->posid = Cha_anno_info[seg->anno_no].hinsi;
     }
-    mrph->inf_type = mrph->inf_form
-	= mrph->con_tbl = mrph->weight = 0;
+		/*    mrph->inf_type = mrph->inf_form
+					= mrph->con_tbl = mrph->weight = 0; */
+		mrph->inf_type = mrph->inf_form
+					= mrph->weight = 0;
+
     mrph->darts = NULL;
     mrph->dat_index = -1; /* XXX */
     

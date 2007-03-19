@@ -114,8 +114,8 @@ dartsdic.lo dartsdic.o: dartsdic.cpp \
   /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/g++-v4/typeinfo \
   /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/g++-v4/istream \
   /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/g++-v4/bits/istream.tcc \
-  /usr/local/include/darts.h dartsdic.h chalib.h chadic.h ../config.h \
-  chasen.h
+  /home/masayu-a/ChaSen/darts-0.31/darts.h dartsdic.h chalib.h chadic.h \
+  ../config.h chasen.h
 
 /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/g++-v4/string:
 
@@ -403,7 +403,7 @@ dartsdic.lo dartsdic.o: dartsdic.cpp \
 
 /usr/lib/gcc/i686-gentoo-linux-gnu/4.1.1/include/g++-v4/bits/istream.tcc:
 
-/usr/local/include/darts.h:
+/home/masayu-a/ChaSen/darts-0.31/darts.h:
 
 dartsdic.h:
 

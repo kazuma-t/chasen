@@ -1,3 +1,13 @@
+2007-03-15  Asahara Masayuki  <masayu-a@is.naist.jp>
+
+	* lib/parse.c (set_anno): 
+	Annotation output
+	Thanks to Yasuharu Den
+	
+	* lib/print.c (print_anno): 
+	Annotation output
+	Thanks to Yasuharu Den
+
 2007-03-14  Asahara Masayuki  <masayu-a@is.naist.jp>
 
 	* lib/dartsdic.cpp : 

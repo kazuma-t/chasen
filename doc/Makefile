@@ -47,14 +47,14 @@ CONFIG_CLEAN_FILES =
 SOURCES =
 DIST_SOURCES =
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/masayu-a/chasen/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/masayu-a/chasen/missing --run tar
+AMTAR = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/masayu-a/chasen/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/masayu-a/chasen/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/masayu-a/chasen/missing --run automake-1.9
+AUTOCONF = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run automake-1.9
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -64,7 +64,7 @@ CPPFLAGS =
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXFLAGS = -g -O2 -I/home/masayu-a/ChaSen/darts-0.31
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -91,11 +91,11 @@ LIBS =
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBOBJS = 
-LTVERSION = 0:1:0
+LTVERSION = 2:4:0
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /home/masayu-a/chasen/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/masayu-a/ChaSen/chasen/missing --run makeinfo
 OBJEXT = o
 PACKAGE = chasen
 PACKAGE_BUGREPORT = 
@@ -109,7 +109,7 @@ RCPATH = ${prefix}/etc/chasenrc
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = strip
-VERSION = 2.4.0-preview3
+VERSION = 2.4.0-preview5
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_F77 = 
@@ -141,7 +141,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = /home/masayu-a/chasen/install-sh
+install_sh = /home/masayu-a/ChaSen/chasen/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -328,7 +328,7 @@ uninstall-am: uninstall-info-am
 	platex $<
 
 .dvi.pdf:
-	dvipdfm $<
+	dvipdf $<
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
