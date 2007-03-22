@@ -18,11 +18,11 @@
 
 \title{
 \bf 形態素解析システム\\
-  『茶筌』version 2.3.3 \\
+  『茶筌』version 2.4.0 \\
   使用説明書}
-\author{松本裕治 ~ 北内啓 ~ 山下達雄 ~ 平野善隆 ~ 松田寛 ~ 高岡一馬 ~ 浅原正幸}
-\date{平成 15 年 8 月\\
-\rule{0mm}{110mm} Copyright \copyright\ 2003 奈良先端科学技術大学院大学 情報科学研究科 自然言語処理学講座} 
+\author{松本裕治 ~ 高岡一馬 ~ 浅原正幸}
+\date{平成 19 年 3 月\\
+\rule{0mm}{110mm} Copyright \copyright\ 2007 奈良先端科学技術大学院大学 情報科学研究科 自然言語処理学講座} 
 
 \def\|{\verb|}
 \def\*{\verb**}
@@ -37,14 +37,13 @@
 
 \begin{footnotesize}
 \noindent
-Morphological Analysis System ChaSen 2.3.3 Users Manual
+Morphological Analysis System ChaSen 2.4.0 Users Manual
 
 \noindent
-Yuji Matsumoto, Akira Kitauchi, Tatsuo Yamashita, Yoshitaka Hirano,
-Hiroshi Matsuda, Kazuma Takaoka and Masayuki Asahara
+Yuji Matsumoto, Kazuma Takaoka and Masayuki Asahara
 
 \noindent
-Copyright (c) 2003 Nara Institute of Science and Technology
+Copyright (c) 2007 Nara Institute of Science and Technology
 All rights reserved.
 
 \vspace{.5em}
@@ -113,12 +112,14 @@ ChaSen\\
 % ~ ~ version 2.2.8 & 23 July 2001\\
 % ~ ~ version 2.2.9 & 08 February 2002\\
 ~ ~ version 2.3.0 & 16 February 2003\\
-~ ~ version 2.3.1 & 19 June 2003\\
-~ ~ version 2.3.2 & 1 August 2003\\
-~ ~ version 2.3.3 & 16 August 2003\\
+% ~ ~ version 2.3.1 & 19 June 2003\\
+% ~ ~ version 2.3.2 & 1 August 2003\\
+% ~ ~ version 2.3.3 & 16 August 2003\\
+~ ~ version 2.4.0 & 30 March 2007\\
 ChaSen for Windows\\
 ~ ~ version 1.0 & 29 March 1997\\
 ~ ~ version 2.0 & 15 December 1999\\
+~ ~ version 2.4.0 & 30 March 2007\\
 NAIST Technical Report\\
 ~ ~ 1st edition(NAIST-IS-TR99008) & 20 April 1999\\
 ~ ~ 2nd edition(NAIST-IS-TR99012) & 15 December 1999\\
@@ -170,27 +171,26 @@ JUMANは，京都大学および奈良先端科学技術大学院大学のスタッフおよび多くの学生
 た．JUMAN 2.0をともに開発した東京大学の黒橋禎夫氏，現在キヤノン勤務の妙木
 裕氏には特に感謝いたします．
 
-JUMAN開発のきっかけを作って下さった京都大学長尾真先生に感謝します．JUMAN開
-発に関して様々な形で協力していただいた豊橋技科大宇津呂武仁氏に感謝します．
-奈良先端大の知念賢一氏には，茶筌システムの開発に関して多くの助言をいただき
-ました．
-奈良先端大在学時の今一修氏，今村友明氏には茶筌1.0および茶筌2.0β
-版の開発の際に山下達雄氏，平野善隆氏には茶筌2.0版および茶筌2.2版の開発の際に
-種々の助
-力をいただきました．両氏および茶筌の開発に協力いただいた松本研究室のメ
+JUMAN開発のきっかけを作って下さった長尾真先生に感謝します．JUMAN開
+発に関して様々な形で協力していただいた筑波大学宇津呂武仁氏に感謝します．
+奈良先端大在学時の知念賢一氏には，茶筌システムの開発に関して多くの助言をいただきました．
+奈良先端大在学時の今一修氏，今村友明氏，北内啓氏には茶筌1.0および茶筌2.0β
+版の開発の際に山下達雄氏，平野善隆氏，松田寛氏には茶筌2.0版および茶筌2.2版の開発の際に
+種々の助力をいただきました．両氏および茶筌の開発に協力いただいた松本研究室のメ
 ンバーに深く感謝します．
 奈良先端大の鹿野清宏教授を代表とする「日本語ディクテーショ
 ン基本ソフトウェアの開発」グループの方々には，IPA品詞体系辞書の大幅な
-整備を行っていただきました．特に，御尽力いただいた電子技術総合研究所の
+整備を行っていただきました．特に，御尽力いただいた法政大学の
 伊藤克亘氏，ASTEMの山田篤氏に感謝いたします．話し言葉の解析を中
 心にして辞書の整備に様々な助言をいただいた千葉大の伝康晴氏に
 感謝します．
-奈良先端大の高林哲氏，工藤拓氏には autoconf，automake 化および RPM パッケージ作成に多くの助言をいただきました．
-また，一人一人の名を挙げることはできませんが，JUMANシステムおよび
-茶筌システムに対して多くのコメントと質問をいただいた利用者の方々に感謝します．
+奈良先端大在学時の高林哲氏，工藤拓氏には autoconf，automake 化および RPM パッケージ作成に多くの助言をいただきました．
+ゴーチュイリン氏，鄭育昌氏，呂嘉氏には中国語版辞書の整備に尽力していただ
+きました．
+また，一人一人の名を挙げることはできませんが，茶筌システムに対して多くのコメントと質問をいただいた利用者の方々に感謝します．
 
 \begin{flushright}
-平成15年2月16日
+平成19年3月30日
 \end{flushright}
 
 \vfill
@@ -201,18 +201,10 @@ JUMAN開発のきっかけを作って下さった京都大学長尾真先生に感謝します．JUMAN開
 \noindent
 〒630-0192\\
 奈良県生駒市高山町8916-5\\
-奈良先端科学技術大学院大学\\
-情報科学研究科\ 自然言語処理学講座\\
-
+奈良先端科学技術大学院大学\ 情報科学研究科\ 自然言語処理学講座\\
 Tel: (0743)72-5240,\ Fax: (0743)72-5249\\
-E-mail: {\sf chasen@is.aist-nara.ac.jp}
-
-~\\
-\noindent
-また以下のURLにて最新情報を提供しています．
-
-\noindent
-URL: {\sf http://chasen.aist-nara.ac.jp/}
+E-mail: {\sf chasen@is.naist.jp}\\
+URL: {\sf http://chasen-legacy.sourceforge.jp/}
 
 \clearpage
 
@@ -229,7 +221,7 @@ URL: {\sf http://chasen.aist-nara.ac.jp/}
 \begin{itemize}
 \item Darts\footnote{\tt
   http://cl.aist-nara.ac.jp/\%7etaku-ku/software/darts/}
-  バージョン 0.2 以降
+  バージョン 0.3 以降
 \item （システムに標準装備されていなければ）libiconv
 \end{itemize}
 
@@ -404,7 +396,8 @@ OS 標準の make を使うとコンパイルに失敗することがある．
   {\tt -i} & 入力文の文字コードを選択 (e: EUC-JP, s:Shift\_JIS, w:UTF-8,
 a:ISO-8859-1) \\
   {\tt -h} & ヘルプメッセージを出力\\
-  {\tt -V} & 茶筌のバージョンを出力
+  {\tt -V} & 茶筌のバージョンを出力 \\
+  {\tt -s} & 制約つき解析
   \end{tabular}
   \end{quote}
 \end{itemize}
@@ -547,6 +540,79 @@ a:ISO-8859-1) \\
 \end{itemize}
 
 \end{description}
+
+\subsection{制約つき解析}
+
+「制約つき解析」とは，入力文の一部の形態素情報が既知である，あるいは境界がわかっているときに，それを満たすように解析することを云います。 
+
+たとえば，「にわにはにわにわとりがいる。」という文に対して，「はにわ」の部分が名詞であるとか，「にわとり」の部分が一つの形態素であるというように指定した上で解析することができます。このとき，制約に反する4文字目の「は」が単独で形態素となったり，「にわとり」が「にわ」と「とり」に分割されるような解析候補は排除されます。 
+
+\paragraph{入力書式}
+制約つき解析の入力は茶筌の標準の出力と同じようなフォーマットであたえます。(\t はタブを表します) 
+
+ただし、読み、基本形の情報は無視されます。 
+\begin{screen}\begin{verbatim}
+ にわ\tニワ\tにわ\tUNSPEC
+ に
+ はにわ\tハニワ\tはにわ\t名詞-一般
+ にわとり\tニワトリ\tにわとり\tUNSPEC
+ がいる。
+ EOS
+\end{verbatim}\end{screen}
+
+
+各行をセグメントと呼び、一つのセグメントは 
+「形態素指定」
+「文断片」 
+「文末」 
+「注釈」 
+のいづれかになります。 
+
+\begin{itemize}
+ \item 形態素指定 \\
+そのセグメントが(それ以上分割されない)一つの形態素であることを示します。 \\
+形態素指定のセグメントは4カラム目以降に品詞情報を持ちます。品詞情報の書式も茶筌の標準の出力と同じです。 \\
+品詞情報の代わりに「UNSPEC」と書くと、セグメントの見出し語で辞書を検索し、該当する語が解析結果となります。辞書にない語はそのまま未知語となります。 
+ \item 文断片 \\
+品詞情報がないセグメントは文断片を表します。 \\
+このセグメント内では、制約のない場合と同様に解析されます。ただし、形態素がセグメントをまたぐような解析候補は生成されません。 
+\item 文末 \\
+「EOS」「BOS/EOS」「文末」で始まる行、あるいは改行しか含まない行は文末です。 
+\item 注釈 \\
+品詞情報のカラムを「ANNO」とすると、そのセグメントは注釈になります。 \\
+注釈は出力には表示されますが、解析には使われません。表示は chasenrc に従います。 
+\end{itemize}
+
+\paragraph{解析例}
+
+以下に解析例を示します。 
+
+入力：
+
+\begin{screen}\begin{verbatim}
+ $ chasen -s
+ にわ\tニワ\tにわ\tUNSPEC
+ に
+ はにわ\tハニワ\tはにわ\t名詞-一般
+ にわとり\tニワトリ\tにわとり\tUNSPEC
+ がいる。
+ EOS
+\end{verbatim}\end{screen}
+
+
+出力：
+
+\begin{screen}\begin{verbatim}
+ にわ\t\t\t未知語
+ に\tニ\tに\t助詞-格助詞-一般
+ はにわ\tハニワ\はにわ\名詞-一般
+ にわとり\tニワトリ\tにわとり\t名詞-一般
+ が\tガ\tが\t助詞-格助詞-一般
+ いる\tイル\tいる\t動詞-自立\t一段\t基本形
+ 。\t。\t。\t記号-句点
+ EOS
+\end{verbatim}\end{screen}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{chasenrc ファイル}
@@ -1046,9 +1112,81 @@ chasen_getopt_argv(option, stderr);
  \bibitem{Den2001}  
    \newblock {伝 康晴，浅原 正幸：}  
    \newblock {「リレーショナル・データベースによる統合的言語資源管理環境」,}  
-   \newblock {ワークショップ「話し言葉の科学と工学」,}  
+   \newblock {第１回「話し言葉の科学と工学」ワークショップ,}  
    \newblock {Feb. 2001.}  
-   
+
+ \bibitem{Den2002}  
+   \newblock {伝 康晴，宇津呂 武仁，山田 篤，浅原 正幸，松本 裕治：}  
+   \newblock {「話し言葉研究に適した電子化辞書の設計」,}  
+   \newblock {第２回「話し言葉の科学と工学」ワークショップ,}  
+   \newblock {pp. 39-46, Feb. 2002.}  
+
+ \bibitem{浅原2003}  
+   \newblock {浅原 正幸，松本 裕治：}  
+   \newblock {「形態素解析とチャンキングの組み合わせによる日本語テキスト中の未知語出現箇所同定」,}  
+   \newblock {情報処理学会研究報告, 自然言語処理研究会, SIGNL-154,
+	pp.47-54, 2003}  
+
+ \bibitem{中川2003}  
+   \newblock {中川 哲治，工藤 拓，松本 裕治 ：}  
+   \newblock {「Support Vector Machineを用いた形態素解析と修正学習法の提案」,}  
+   \newblock {情報処理学会論文誌, Vol.44, No.5, pp.1354-1367, May 2003.}  
+
+ \bibitem{Kudo2004}  
+   \newblock {Taku Kudo, Kaoru Yamamoto, Yuji Matsumoto：}  
+   \newblock {''Appliying Conditional Random Fields to Japanese Morphological Analysis'',}
+\newblock{EMNLP-2004, 2004.}
+
+ \bibitem{松本2004a}  
+   \newblock {松本裕治，高岡一馬，浅原正幸，工藤拓 ：}  
+   \newblock {「茶筌と南瓜による日本語解析--構文情報を用いた文の役割分類」 }  
+   \newblock {人工知能学会誌, Vol.19, No.3, pp.334-339, 2004.}  
+
+ \bibitem{Goh2005a}  
+   \newblock {Chooi-Ling Goh, Masayuki Asahara, and Yuji Matsumoto：}  
+   \newblock {"Chinese Word Segmentation by Classification of Characters",}  
+   \newblock {International Journal of Computational Linguistics and Chinese Language Processing ,}  
+   \newblock {Vol.10, No.3, pp.381-396, September, 2005.}  
+
+ \bibitem{Goh2005b}  
+   \newblock {Chooi-Ling Goh, Masayuki Asahara, and Yuji Matsumoto：}  
+   \newblock {"Training Multi-Classifiers for Chinese Unknown Word Detection"
+,}  
+   \newblock {Journal of Chinese Language and Computing, Vol.15, No.1, pp.1-12, 2005.}  
+
+ \bibitem{Goh2005c}  
+   \newblock {ゴーチュイリン，鄭育昌，浅原正幸，松本裕治：}  
+   \newblock {「中国版茶筌の開発」,}  
+   \newblock {言語処理学会第11回年次大会発表論文集, pp.245-248, 2005.}  
+
+ \bibitem{浅原2005}  
+   \newblock {浅原正幸，高橋由梨加，松本裕治：}  
+   \newblock {「異表記同語情報を付与した辞書の整備」,}  
+   \newblock {言語処理学会第11回年次大会発表論文集, pp.604-607, 2005.}  
+
+ \bibitem{工藤2005}  
+   \newblock {工藤 拓：}  
+   \newblock {「形態素周辺確率を用いた分かち書きの一般化とその応用」,}  
+   \newblock {言語処理学会第11回年次大会発表論文集,  2005.}  
+
+ \bibitem{Goh2006}  
+   \newblock {Chooi-Ling Goh, Masayuki Asahara, and Yuji Matsumoto：}  
+   \newblock {"Machine Learning-based Methods to Chinese Unknown Word Detection and POS Tag Guessing",}  
+   \newblock {Journal of Chinese Language and Computing, Vol.16, No.4, pp.185-206, 2006.}  
+
+ \bibitem{東2006}  
+\newblock{東藍，浅原正幸，松本裕治：}
+\newblock{「条件付確率場による日本語未知語処理」}
+\newblock{情報処理学会研究報告, 自然言語処理研究会, SIGNL-173, pp.67-74,
+	2006.}
+
+ \bibitem{東2007}  
+\newblock{東藍，工藤拓，浅原正幸，松本裕治：}
+\newblock{「日本語未知語処理のための大規模未解析データの利用法」}
+\newblock{情報処理学会研究報告, 自然言語処理研究会, SIGNL-179, 2007.}
+
+
+
 \end{thebibliography}
 
 %----------------------------------------%
@@ -1076,11 +1214,17 @@ chasen_getopt_argv(option, stderr);
 原形あるいは改変された形で配布された本ソフトウェアに関連して生じる
 一切の損失に対して保証の責を負わないこととする．
 
-また、上に述べた著作権は茶筌システム本体についてのものであり、
-ipadic をはじめとする他の辞書については、各辞書についての著作権条項があ
+また，上に述べた著作権は茶筌システム本体についてのものであり，
+ipadic をはじめとする他の辞書については，各辞書についての著作権条項があ
 るためそちらを参照すること．
 
 \section{更新履歴}
+
+\subsection{茶筌 2.3.3 から 茶筌 2.4.0 への変更点}
+\begin{itemize}
+\item 制約つき解析の実装
+\item Windows 版パッケージの再構成
+\end{itemize}
 
 \subsection{茶筌 2.3.2 から 茶筌 2.3.3 への変更点}
 \begin{itemize}
@@ -1121,7 +1265,7 @@ ipadic をはじめとする他の辞書については、各辞書についての著作権条項があ
 \begin{itemize}
 \item 辞書とシステムの分離 \\
       他言語の辞書整備により，辞書とシステムを分離した．
-      chasenrc は辞書側が持ち、システムインストール時にはインストールさ
+      chasenrc は辞書側が持ち，システムインストール時にはインストールさ
       い．辞書インストール時に {\tt PREFIX/etc} 以下に {\tt chasenrc} を
       インストールする必要がある．
 \item autoconf, automake, libtool 化 \\
@@ -1319,8 +1463,8 @@ bi-gram以上の連接規則に対する両者の考え方がかなり異なるため，両者の融合は見
 として公開されました．
 
 奈良先端大で拡張を予定していた機能には下に示すような項目があり，茶筌
-1.0を1997年2月に公開し，以後，茶筌1.5, 1.51, 2.0を経て，
-茶筌2.2においてそのほとんどが実現されました．
+1.0を1997年2月に公開し，以後，茶筌1.5, 1.51, 2.0, 2.2, 2.3を経て，
+茶筌2.4においてそのほとんどが実現されました．
 
 \begin{enumerate}
 \item (茶筌1.0) 辞書システムの独自開発(NDBMの棄却,パトリシア木の採用)
@@ -1335,8 +1479,49 @@ bi-gram以上の連接規則に対する両者の考え方がかなり異なるため，両者の融合は見
 \item (茶筌2.0) 接続規則の可変長化
 \item (茶筌2.0) 半角文字を含む単語の辞書登録(SUFARYを利用した辞書)
 \item (茶筌2.0) 出力フォーマットの拡充
-\item 解析済みデータからの可変長接続コストの学習
+\item (茶筌2.0) 解析済みデータからの可変長接続コストの学習
+\item (茶筌2.4) 制約つき解析
 \end{enumerate}
+
+
+\section{形態素解析器の今後について}
+
+工藤拓氏により MeCab という形態素解析器が公開されています%
+\footnote{http://mecab.sourceforge.net/}。
+茶筌は形態素解析モデルとして隠れマルコフモデルという生成モデルを用いてい
+るのに対し，MeCab は条件付確率場という識別モデルを用いて
+います。
+工藤氏の論文\cite{Kudo2004}では，
+新しいモデルの方が解析精度が向上したことを示しています。
+MeCab のその他の特色として「ソフトわかち書き」%
+\cite{工藤2005}\footnote{http://mecab.sourceforge.net/soft.html}
+を出力することがあげられます。
+現在の茶筌の枠組では，MeCab のように素性（特徴量）を自由に設計できず，
+このような新しい解析モデルには対応できないでおります。
+
+辞書関連でも近年さまざまな改良が行われてきました。
+新しい JUMAN 辞書%
+\footnote{http://nlp.kuee.kyoto-u.ac.jp/nl-resource/juman.html}では，
+日本語の基本的語彙を選別するとともに，
+表記ゆれ情報の整備が行われています。
+千葉大の伝氏のグループにより UniDic \cite{Den2002}と呼ばれる，自然言語処理研究者
+のみならず，人文系研究者にも音声処理研究者にも使いやすい辞書が近く公開さ
+れるようです。
+奈良先端大では，IPADIC の辞書項目を選別し，
+表記ゆれ情報，複合語情報を付与した日本語辞書を公開する予定です。
+新しい辞書では，名前を変更し，IPADIC で懸案となっていた ICOT 条項
+を廃止する予定です。
+また，奈良先端大では，権利関係の処理が終わり次第 Penn Chinese Treebank
+体系の品詞が付与された中国語形態素解析用辞書を公開する予定です。
+中国語形態素解析用辞書公開時には，MeCab 作者の工藤さんとも協議して，
+ChaSen 用モデルだけでなく，MeCab 用モデルも同時に公開したいと考えております。
+
+JUMAN, 茶筌, MeCab が解決していない問題として，未知語（辞書にない語）の
+問題があります。現在奈良先端大におきまして未知語の問題を解決する機械学習
+モデルを開発しております\cite{東2006,東2007}。
+いずれ、現在の茶筌とは異なる枠組で構成された、
+未知語解析モデルつきの形態素解析器を公開できればと考えております。
+
 \end{document}
 % Local Variables: 
 % mode: latex
