@@ -1,3 +1,7 @@
+2007-03-26  TAKAOKA Kazuma  <klm@apsaras.quasi.dip.jp>
+
+	* lib/tokenizer.c (is_anno): spaces are anno[0] (SPACE_POS)
+
 2007-03-25  TAKAOKA Kazuma  <kazum-ta@jeans.ocn.ne.jp>
 
 	* lib/parse.c (set_anno):

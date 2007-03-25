@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: tokenizer.c,v 1.3 2007/03/25 16:25:46 kazuma-t Exp $
+ * $Id: tokenizer.c,v 1.4 2007/03/25 16:45:12 kazuma-t Exp $
  */
 
 #include <string.h>
@@ -147,9 +147,9 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
     anno_info *anno = NULL;
     int no;
 
-    if (anno_no != NULL && (no = is_anno(tok, str, len)) < 0) {
-	anno = &(tok->anno[-no]);
-	*anno_no = -no;
+    if (anno_no != NULL && (no = is_anno(tok, str, len)) >= 0) {
+	anno = &(tok->anno[no]);
+	*anno_no = no;
 	for (cursor = anno->len1;
 	     cursor < len;
 	     cursor += tok->mblen(str + cursor, len - cursor)) {
@@ -163,7 +163,7 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
     for (cursor = head = 0; cursor < len;
 	 cursor += tok->mblen(str + cursor, len - cursor)) {
 	if (anno_no != NULL &&
-	    is_anno(tok, str + cursor, len - cursor) < 0) {
+	    is_anno(tok, str + cursor, len - cursor) >= 0) {
 	    return cursor;
 	} else {
 	    state = tok->get_char_type(tok, str + cursor, len - cursor);
@@ -410,21 +410,30 @@ en_char_type(chasen_tok_t *tok, unsigned char *str, int len)
 static int
 is_anno(chasen_tok_t *tok, unsigned char *string, int len)
 {
-    int i;
+    int i, j;
     anno_info *anno = tok->anno;
 
-    if (anno == NULL) {
+    /* spaces are anno[0] (SPACE_POS) */
+    j = 0;
+    while (j < len && isspace(string[j]))
+        j++;
+    if (j) {
+	anno[0].len1 = j;
 	return 0;
+    }
+
+    if (anno == NULL) {
+	return -1;
     }
     for (i = 1; (anno[i].str1 != NULL); i++) {
 	if (len < anno[i].len1) {
 	    continue;
 	}
 	if (!memcmp(string, anno[i].str1, anno[i].len1)) {
-	    return -i;
+	    return i;
 	}
     }
-    return 0;
+    return -1;
 }
 
 static int
