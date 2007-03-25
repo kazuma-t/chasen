@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: chalib.c,v 1.2 2007/03/14 04:01:23 masayu-a Exp $
+ * $Id: chalib.c,v 1.3 2007/03/25 11:57:27 kazuma-t Exp $
  */
 
 #include "chalib.h"
@@ -461,13 +461,20 @@ seg_tokenize(unsigned char *line, cha_seg_t *seg)
     return seg->len;
 }
 
-static void
-chomp(char *buf)
+static int
+strip(unsigned char *s)
 {
-    int len = strlen(buf);
-    if (buf[len - 1] == '\n')
-	buf[len - 1] = '\0';
+    int len = strlen(s);
+
+    if (s[len - 1] == '\n')
+	s[len-- - 1] = '\0';
+
+    while (len > 0 && s[len - 1] == '\t')
+        s[len-- - 1] = '\0';
+
+    return len;
 }
+
 
 int
 chasen_parse_segments(FILE *input, FILE *output)
@@ -475,6 +482,7 @@ chasen_parse_segments(FILE *input, FILE *output)
     cha_lat_t lat;
     unsigned char buf[CHA_INPUT_SIZE]; /* XXX */
     cha_seg_t seg;
+    int is_eos = 1;
 
     if (!Cha_undef_info_num)
 	cha_init();
@@ -483,18 +491,18 @@ chasen_parse_segments(FILE *input, FILE *output)
 
     cha_set_output(output);
 
-    cha_print_reset();
-    cha_parse_bos(&lat);
-
     while (fgets(buf, CHA_INPUT_SIZE, input) != NULL) {
-	chomp(buf);
+	strip(buf);
+	if (is_eos) {
+	    cha_print_reset();
+	    cha_parse_bos(&lat);
+	    is_eos = 0;
+	}
 	if (!buf[0] || cha_litmatch(buf, 2, STR_EOS, STR_BOS_EOS)) {
 	    /* EOS */
 	    cha_parse_eos(&lat);
 	    cha_print_path(&lat, opt_show, opt_form, opt_form_string);
-	    /* BOS */
-	    cha_print_reset();
-	    cha_parse_bos(&lat);
+	    is_eos = 1;
 	    continue;
 	}
 	if (seg_tokenize(buf, &seg) < 0) {
@@ -503,8 +511,10 @@ chasen_parse_segments(FILE *input, FILE *output)
 	}
 	cha_parse_segment(&lat, &seg);
     }
-    cha_parse_eos(&lat);
-    cha_print_path(&lat, opt_show, opt_form, opt_form_string);
+    if (!is_eos) {
+        cha_parse_eos(&lat);
+	cha_print_path(&lat, opt_show, opt_form, opt_form_string);
+    }
 
     return lat.len;
 }
