@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: init.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: init.c,v 1.2 2007/03/25 13:24:39 kazuma-t Exp $
  */
 
 #include "chalib.h"
@@ -148,6 +148,9 @@ eval_chasenrc_sexp(chasen_cell_t * cell)
     cell2 = cha_car(cha_cdr(cell));
     if (Cha_errno)
 	return;
+
+    if (!strcmp(cell1_str, CHA_LIT(STR_ENCODE)))
+        cha_set_encode(cha_s_atom(cell2));
 
     /*
      * 辞書ファイル 

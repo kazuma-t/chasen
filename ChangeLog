@@ -1,4 +1,5 @@
 2007-03-25  TAKAOKA Kazuma  <kazum-ta@jeans.ocn.ne.jp>
+
 	* lib/parse.c (set_anno):
 	* lib/print.c (print_anno):
 	print annotations correctly
@@ -8,6 +9,8 @@
 	* lib/chalib.c (chasen_parse_segments): read outputs of ChaSen
 
 	* lib/literal.c (cha_set_encode): add '-i u' for UTF-8
+	
+	* lib/init.c (eval_chasenrc_sexp): add 'ENCODE' predicate
 	
 2007-03-15  Asahara Masayuki  <masayu-a@is.naist.jp>
 

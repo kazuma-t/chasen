@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: literal.c,v 1.2 2007/03/25 06:16:19 kazuma-t Exp $
+ * $Id: literal.c,v 1.3 2007/03/25 13:24:39 kazuma-t Exp $
  */
 
 #include <stdarg.h>
@@ -80,6 +80,7 @@
 #define JSTR_CONN_ATTR     "連接属性"
 
 /* chasenrc */
+#define ESTR_ENCODE         "ENCODE"
 #define JSTR_GRAM_FILE      "文法ファイル"
 #define ESTR_GRAM_FILE      "GRAMMAR"
 #define JSTR_UNKNOWN_WORD1  "未知語"
@@ -143,6 +144,7 @@ char *cha_literal[][3] = {
     { JSTR_COMPOUND, ESTR_COMPOUND, NULL },
     { JSTR_SEG, ESTR_SEG, NULL },
     { JSTR_CONN_ATTR, "", NULL },
+    { ESTR_ENCODE, ESTR_ENCODE, NULL },
     { JSTR_GRAM_FILE, ESTR_GRAM_FILE, NULL },
     { JSTR_UNKNOWN_WORD1, ESTR_UNKNOWN_WORD, NULL },
     { JSTR_UNKNOWN_WORD1, ESTR_UNKNOWN_WORD, NULL },
