@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: literal.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: literal.c,v 1.2 2007/03/25 06:16:19 kazuma-t Exp $
  */
 
 #include <stdarg.h>
@@ -240,6 +240,7 @@ cha_set_encode(char *encodestr)
 	Cha_encode = CHASEN_ENCODE_SJIS;
 	break;
     case 'w':
+    case 'u':
 	Cha_encode = CHASEN_ENCODE_UTF8;
 	break;
     case 'a':
