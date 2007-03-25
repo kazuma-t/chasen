@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: tokenizer.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: tokenizer.c,v 1.2 2007/03/25 11:01:15 kazuma-t Exp $
  */
 
 #include <string.h>
@@ -150,7 +150,8 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
     if (anno_no != NULL && (no = is_anno(tok, str, len)) < 0) {
 	anno = &(tok->anno[-no]);
 	*anno_no = -no;
-	for (cursor = 0; cursor < len;
+	for (cursor = tok->mblen(str, len);
+	     cursor < len;
 	     cursor += tok->mblen(str + cursor, len - cursor)) {
 	    if (is_anno2(anno, str, cursor))
 		break;
