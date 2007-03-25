@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: print.c,v 1.2 2007/03/19 08:12:22 masayu-a Exp $
+ * $Id: print.c,v 1.3 2007/03/25 11:02:53 kazuma-t Exp $
  */
 
 #include <stdarg.h>
@@ -546,10 +546,6 @@ print_anno(cha_lat_t *lat, int path_num, char *format)
 
     data.mrph = &mrph;
 
-    if (!Cha_anno_info[0].hinsi && !Cha_anno_info[1].hinsi
-	&& !Cha_anno_info[1].format)
-	return;
-
     if (path->start <= pos_end) {
 	pos_end = path->end;
 	return;
@@ -563,15 +559,16 @@ print_anno(cha_lat_t *lat, int path_num, char *format)
 	    mrph_t *m = nth_mrph(lat->anno);
 	    mrph_data_t d;
 	    int anno_no = m->con_tbl; /* XXX */
-	    char *format_string = format;
 
 	    path->start = pos_end;
 	    path->end = pos_end + m->headword_len;
 	    get_mrph_data(m, &d);
 
-			if (m->is_undef && Cha_anno_info[anno_no].format)
-				format_string = Cha_anno_info[anno_no].format;
-	    cha_printf_mrph(lat, path_num, &d, format_string);
+	    if (Cha_anno_info[anno_no].format)
+		cha_printf_mrph(lat, path_num, &d,
+				Cha_anno_info[anno_no].format);
+	    else if (Cha_anno_info[anno_no].hinsi)
+		cha_printf_mrph(lat, path_num, &d, format);
 
 	    lat->anno = m->dat_index; /* XXX */
 	    pos_end += m->headword_len;
