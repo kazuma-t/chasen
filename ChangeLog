@@ -1,3 +1,14 @@
+2007-03-25  TAKAOKA Kazuma  <kazum-ta@jeans.ocn.ne.jp>
+	* lib/parse.c (set_anno):
+	* lib/print.c (print_anno):
+	print annotations correctly
+	
+	* lib/tokenizer.c (cha_tok_parse): fix for hangup when anno->len2 is 0
+
+	* lib/chalib.c (chasen_parse_segments): read outputs of ChaSen
+
+	* lib/literal.c (cha_set_encode): add '-i u' for UTF-8
+	
 2007-03-15  Asahara Masayuki  <masayu-a@is.naist.jp>
 
 	* lib/parse.c (set_anno): 
