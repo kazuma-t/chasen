@@ -613,6 +613,12 @@ a:ISO-8859-1) \\
  EOS
 \end{verbatim}\end{screen}
 
+\paragraph{制約つき解析における注意点}
+
+\begin{itemize}
+\item 制約つき解析時 ``ANNO'' を指定しても chasenrc に注釈の指定がなければ出力には何も表示されない．
+\item 制約つき解析時、空白品詞機能と空白読み飛ばしが無効になる（注釈機能で代用すること）．
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{chasenrc ファイル}
@@ -1224,6 +1230,8 @@ ipadic をはじめとする他の辞書については，各辞書についての著作権条項があ
 \begin{itemize}
 \item 制約つき解析の実装
 \item Windows 版パッケージの再構成
+\item chasenrc による文字コード指定
+\item UTF-8 の指定文字に 'u' を追加
 \end{itemize}
 
 \subsection{茶筌 2.3.2 から 茶筌 2.3.3 への変更点}
