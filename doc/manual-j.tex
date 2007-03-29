@@ -634,11 +634,12 @@ chasenrc ファイルは形態素解析プログラムに必要な様々な選択肢を定義する
 具体的には次のような優先順位で chasenrc ファイルが読み込まれる．
 
 \begin{enumerate}
-\item 起動時に {\tt -r} オプションで指定されたファイル．
-\item 環境変数 {\tt CHASENRC} で指定されたファイル．
-\item 利用者のホームディレクトリにある {\tt .chasen2rc}．
-\item 利用者のホームディレクトリにある {\tt .chasenrc}．
-\item {\tt PREFIX/etc/chasenrc}(デフォルトではインストールされない)．
+\item (Unix, Windows) 起動時に {\tt -r} オプションで指定されたファイル．
+\item (Unix, Windows) 環境変数 {\tt CHASENRC} で指定されたファイル．
+\item (Windows) レジストリ {\verb+HKEY_CURRENT_USER\Software\NAIST\ChaSen+} の {\tt chasenrc} に設定してある chasenrc 
+\item (Unix) 利用者のホームディレクトリにある {\tt .chasen2rc}．
+\item (Unix) 利用者のホームディレクトリにある {\tt .chasenrc}．
+\item (Unix) {\tt PREFIX/etc/chasenrc}(デフォルトではインストールされない)．
 
 \end{enumerate}
 
