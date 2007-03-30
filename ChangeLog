@@ -1,3 +1,7 @@
+2007-03-30  Asahara Masayuki  <masayu-a@is.naist.jp>
+
+	* lib/lisp.c (LISPBUFSIZ): 
+
 2007-03-26  TAKAOKA Kazuma  <klm@apsaras.quasi.dip.jp>
 
 	* lib/tokenizer.c (is_anno): spaces are anno[0] (SPACE_POS)
