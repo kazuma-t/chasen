@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: lisp.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: lisp.c,v 1.2 2007/03/30 00:40:36 masayu-a Exp $
  */
 
 #include "chadic.h"
@@ -39,6 +39,7 @@
 #define EPARENTHESIS	')'
 #define NILSYMBOL	"NIL"
 #define CELLALLOCSTEP	1024
+#define LISPBUFSIZ	8192
 
 #define new_cell()	(cha_cons(NIL, NIL))
 #define eq(x, y)	(x == y)
@@ -406,7 +407,7 @@ static chasen_cell_t *
 s_read_atom(FILE * fp)
 {
     chasen_cell_t *cell;
-    char buffer[BUFSIZ];
+    char buffer[LISPBUFSIZ];
 
     skip_comment(fp);
 
