@@ -1,3 +1,10 @@
+2007-07-03  Asahara Masayuki  <masayu-a@is.naist.jp>
+
+	* lib/tokenizer.c (cha_tok_parse): 
+	bug fix #10259 
+	https://sourceforge.jp/tracker/index.php?func=detail&aid=10259&group_id=2619&atid=9708
+	Thanks for Yasuharu Den
+	
 2007-03-30  Asahara Masayuki  <masayu-a@is.naist.jp>
 
 	* lib/lisp.c (LISPBUFSIZ): 
