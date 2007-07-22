@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: tokenizer.c,v 1.5 2007/07/03 05:53:44 masayu-a Exp $
+ * $Id: tokenizer.c,v 1.6 2007/07/22 12:24:19 kazuma-t Exp $
  */
 
 #include <string.h>
@@ -147,6 +147,8 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
     anno_info *anno = NULL;
     int no;
 
+    memset(type, 0, len);
+
     if (anno_no != NULL && (no = is_anno(tok, str, len)) >= 0) {
 	anno = &(tok->anno[no]);
 	*anno_no = no;
@@ -156,7 +158,7 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
 	    if (is_anno2(anno, str, cursor))
 		break;
 	}
-	type[0] = cursor; /* 2007/06/26 YD */
+	type[0] = cursor;
 	return cursor;
     }
 
@@ -165,7 +167,7 @@ cha_tok_parse(chasen_tok_t *tok, unsigned char *str, char *type, int len,
 	 cursor += tok->mblen(str + cursor, len - cursor)) {
 	if (anno_no != NULL &&
 	    is_anno(tok, str + cursor, len - cursor) >= 0) {
-   		type[head] = cursor - head; /* 2007/06/26 YD */
+	    type[head] = cursor - head;
 	    return cursor;
 	} else {
 	    state = tok->get_char_type(tok, str + cursor, len - cursor);
