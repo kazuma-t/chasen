@@ -1,3 +1,8 @@
+2007-07-23  Asahara Masayuki  <masayu-a@is.naist.jp>
+
+	* lib/tokenizer.c (cha_tok_parse): 
+	tokenization bug: unknown words with an half width space
+	
 2007-07-03  Asahara Masayuki  <masayu-a@is.naist.jp>
 
 	* lib/tokenizer.c (cha_tok_parse): 
