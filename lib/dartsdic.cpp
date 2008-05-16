@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: dartsdic.cpp,v 1.3 2007/03/14 04:01:23 masayu-a Exp $
+ * $Id: dartsdic.cpp,v 1.4 2008/05/16 04:59:21 masayu-a Exp $
  */
 
 #include <string>
@@ -196,7 +196,7 @@ da_build_dump(da_build_t* builder, char* tmpfile, FILE* lexfile)
     std::cerr << size << " keys" << std::endl;
 
     DoubleArrayL da;
-    da.build(size, keys, lens, vals);
+    da.build(size, (const char**) keys, lens, vals);
     da.save(builder->path->c_str(), "wb");
 
     return builder->entries->size();

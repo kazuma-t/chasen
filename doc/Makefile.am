@@ -9,4 +9,4 @@ SUFFIXES= .tex .dvi .pdf
 	platex $<
 
 .dvi.pdf:
-	dvipdf $<
+	dvipdfmx $<
