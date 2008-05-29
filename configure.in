@@ -64,10 +64,9 @@ AC_CACHE_VAL(cl_cv_header_darts, [
 AC_TRY_COMPILE([#include <darts.h>],[;], [cl_cv_header_darts=yes], [
     AC_MSG_ERROR(no header of Darts. You need to get darts-0.32 or higher from http://chasen.org/~taku/software/darts/.)])])
 AC_MSG_RESULT($cl_cv_header_darts)
-AC_CACHE_VAL(cl_cv_header_darts_version, [
-    AC_EGREP_HEADER([DARTS_VERSION \"0.3[23456789]\"],darts.h,cl_cv_header_darts_version=yes,[AC_MSG_ERROR(an old version of darts.h is found. You need to get darts-0.32 or higher from http://chasen.org/~taku/software/darts/.)])])
-
-AC_MSG_RESULT(checking for darts.h version >= 0.32... $cl_cv_header_darts_version)
+#AC_CACHE_VAL(cl_cv_header_darts_version, [
+#    AC_TRY_CPP([],cl_cv_header_darts_version=yes,[AC_MSG_ERROR(an old version of darts.h is found. You need to get darts-0.32 or higher from http://chasen.org/~taku/software/darts/.)])])
+#AC_MSG_RESULT(checking for darts.h version >= 0.32... $cl_cv_header_darts_version)
 AC_LANG_C
 
 AC_ARG_WITH(libiconv,
