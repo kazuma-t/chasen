@@ -1,3 +1,9 @@
+2000-12-18  NOKUBI Takatsugu  <knok@daionet.gr.jp>
+
+	* Verison 1.04.
+
+	* ChaSen.pm: Fixed bad pod syntax.
+
 2000-04-07  NOKUBI Takatsugu  <knok@daionet.gr.jp>
 
 	* Version 1.03.

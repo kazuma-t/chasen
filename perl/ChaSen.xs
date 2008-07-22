@@ -3,7 +3,7 @@ Copyright(c) 1998-2000 NOKUBI Takatsugu <knok@daionet.gr.jp>
 Copyright(c) 1997 Nara Institute of Science and Technorogy.
 All Rights Reserved.
 
-$Id: ChaSen.xs,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+$Id: ChaSen.xs,v 1.2 2008/07/22 13:00:45 masayu-a Exp $
 */
 
 #ifdef __cplusplus

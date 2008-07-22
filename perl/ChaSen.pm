@@ -1,5 +1,5 @@
 #
-# $Id: ChaSen.pm,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+# $Id: ChaSen.pm,v 1.2 2008/07/22 13:00:45 masayu-a Exp $
 
 package Text::ChaSen;
 
@@ -17,18 +17,16 @@ Text::ChaSen - ChaSen library module for perl
 =head1 DESCRIPTION
 
 このモジュールは、奈良先端科学技術大学が開発した日本語形態素解析
-ソフトウェア"茶筅"をperlから使うためのものである。
+ソフトウェア"茶筌"をperlから使うためのものである。
 
 =over 4
 
 =item getopt_argv($arg1, $arg2, ...)
 
-茶筅にオプションを渡し、初期化を行う。オプションは、chasenコマンド
+茶筌にオプションを渡し、初期化を行う。オプションは、chasenコマンド
 に指定できるものに準ずるが、C<-s>やC<-D>などのサーバやクライアントに関する
 オプションは利用できない。
 また、一番最初のオプションはプログラムのファイル名である。
-
-=back
 
 例えば、次のような引数で実行したchasenコマンドがある。
 
@@ -46,6 +44,8 @@ getopt_argv('chasen', 'C<-j>', 'C<-F>', '%m ');
 
 形態素解析を行い、結果を文字列として返す。この関数は、以前のバージョン
 との互換性のためだけに存在する。
+
+=back
 
 =head1 COPYRIGHT
 
@@ -132,7 +132,7 @@ require DynaLoader;
 %EXPORT_TAGS = (all => [qw(getopt_argv sparse_tostr fparse_tostr
  sparse_tostr_long)]);
 
-$VERSION = '1.03';
+$VERSION = '1.04';
 
 bootstrap Text::ChaSen $VERSION;
 
