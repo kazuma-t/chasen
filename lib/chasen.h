@@ -1,7 +1,7 @@
 /* 
  * chasen.h - header file for ChaSen library
  *
- * $Id: chasen.h,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: chasen.h,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 #ifndef __CHASEN_H__

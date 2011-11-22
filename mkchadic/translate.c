@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id: translate.c,v 1.1 2007/03/13 07:40:10 masayu-a Exp $
+ * $Id: translate.c,v 1.1.1.1 2007/03/13 07:40:10 masayu-a Exp $
  */
 
 #include "config.h"
